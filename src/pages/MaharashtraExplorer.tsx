@@ -15,7 +15,7 @@ import trimbakeshwar from "@/assets/mumbaitemple.jpg"; // Proxy
 
 import alibaug from "@/assets/mumbai_marine_drive_ride_1765970506836.png"; // Proxy for beach
 import tarkarli from "@/assets/cavelossim.png"; // Proxy (Goa beach for now)
-import ganpatipule from "@/assets/bg-falls.jpg"; // Proxy
+import ganpatipule from "@/assets/bg-falls.png"; // Proxy
 
 import misalPav from "@/assets/mumbai_pav_bhaji_1765971112475.png"; // Misal Pav
 import vadaPav from "@/assets/mumbai_vada_pav_close_1765971065308.png"; // Vada Pav

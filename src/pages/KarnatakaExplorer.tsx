@@ -22,7 +22,7 @@ import kaMurudeshwarTemple from "@/assets/murdeshwar_shiva_statue.png"; // Corre
 import kaJungleResort from "@/assets/coorg_resort_pool.jpg"; // Corrected
 import kaDosa from "@/assets/mysore_masala_dosa_veg_1765905247257.png"; // Corrected
 import kaFish from "@/assets/kerala_karimeen_pollichathu_1765904283596.png"; // Proxy
-import kaPicnic from "@/assets/bg-falls.jpg";
+import kaPicnic from "@/assets/bg-falls.png";
 
 const PlaceCard = ({ image, title, desc, icon: Icon }: { image: string, title: string, desc: string, icon: any }) => (
     <div className="relative group overflow-hidden rounded-3xl h-[400px] shadow-2xl cursor-pointer border border-white/10 hover:border-amber-500/50 transition-all duration-500">

@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import falls3 from "@/assets/bg-city.jpg";
-import go3 from "@/assets/bg-falls.jpg";
-import promoB3 from "@/assets/night_life.jpg";
+import go3 from "@/assets/bg-falls.png";
+import promoB3 from "@/assets/night_life.png";
 import chakra from "@/assets/chakra.jpg";
 import heroVideo from "@/assets/view1.mp4";
 import maldives from "@/assets/maldives.jpg";

@@ -7,7 +7,7 @@ import munnarImg from "@/assets/munnar.jpg";
 import vagamonImg from "@/assets/vagmon.jpg";
 import varkalaImg from "@/assets/kerala_varkala.png";
 import kochiImg from "@/assets/kerala_kochi.png";
-import athirapallyImg from "@/assets/bg-falls.jpg";
+import athirapallyImg from "@/assets/bg-falls.png";
 
 // Generated Images (simulated paths - in real app, these would be the actual generated file paths or assets)
 // Generated Images (simulated paths - in real app, these would be the actual generated file paths or assets)
