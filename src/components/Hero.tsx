@@ -13,12 +13,13 @@ import lightCitiesAudio from "@/assets/light cities.mp3";
 import greenDreamsAudio from "@/assets/green dream begins.mp3";
 import nightVibesAudio from "@/assets/night vibes.mp3";
 import romanticVibesAudio from "@/assets/romantic vibes.mp3";
+import viewAudio from "@/assets/view.mp3";
 
 const Hero = () => {
   const navigate = useNavigate();
 
   const backgrounds = [
-    { type: "video", src: heroVideo, audio: null },
+    { type: "video", src: heroVideo, audio: viewAudio },
     { type: "image", src: falls3, audio: lightCitiesAudio },
     { type: "image", src: go3, audio: greenDreamsAudio },
     { type: "image", src: promoB3, audio: nightVibesAudio },
