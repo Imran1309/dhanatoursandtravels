@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Star, Globe } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import falls3 from "@/assets/bg-city.jpg";
@@ -8,17 +8,21 @@ import go3 from "@/assets/bg-falls.png";
 import promoB3 from "@/assets/night_life.png";
 import chakra from "@/assets/chakra.jpg";
 import heroVideo from "@/assets/view1.mp4";
-import maldives from "@/assets/maldives.jpg";
+import romanticImage from "@/assets/romantic.png";
+import lightCitiesAudio from "@/assets/light cities.mp3";
+import greenDreamsAudio from "@/assets/green dream begins.mp3";
+import nightVibesAudio from "@/assets/night vibes.mp3";
+import romanticVibesAudio from "@/assets/romantic vibes.mp3";
 
 const Hero = () => {
   const navigate = useNavigate();
 
   const backgrounds = [
-    { type: "video", src: heroVideo },
-    { type: "image", src: falls3 },
-    { type: "image", src: go3 },
-    { type: "image", src: promoB3 },
-    { type: "image", src: maldives },
+    { type: "video", src: heroVideo, audio: null },
+    { type: "image", src: falls3, audio: lightCitiesAudio },
+    { type: "image", src: go3, audio: greenDreamsAudio },
+    { type: "image", src: promoB3, audio: nightVibesAudio },
+    { type: "image", src: romanticImage, audio: romanticVibesAudio },
   ];
 
   const taglines = [
@@ -30,14 +34,51 @@ const Hero = () => {
   ];
 
   const [currentBg, setCurrentBg] = useState(0);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [userInteracted, setUserInteracted] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBg((prev) => (prev + 1) % backgrounds.length);
-    }, currentBg === 0 ? 3000 : 5000);
+    const handleInteraction = () => setUserInteracted(true);
+    window.addEventListener("click", handleInteraction);
+    return () => window.removeEventListener("click", handleInteraction);
+  }, []);
 
-    return () => clearInterval(interval);
-  }, [currentBg]);
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    const proceedToNext = () => {
+      setCurrentBg((prev) => (prev + 1) % backgrounds.length);
+    };
+
+    const currentSlide = backgrounds[currentBg];
+
+    if (currentSlide.audio) {
+      if (audioRef.current) {
+        audioRef.current.src = currentSlide.audio;
+        audioRef.current.play().catch(() => {
+          // If browser blocks autoplay, use the actual audio duration
+          const duration = audioRef.current?.duration;
+          if (duration && !isNaN(duration)) {
+            timeoutId = setTimeout(proceedToNext, duration * 1000);
+          } else if (audioRef.current) {
+            audioRef.current.addEventListener('loadedmetadata', function listener() {
+              timeoutId = setTimeout(proceedToNext, audioRef.current!.duration * 1000);
+              audioRef.current?.removeEventListener('loadedmetadata', listener);
+            });
+          } else {
+            timeoutId = setTimeout(proceedToNext, 5000);
+          }
+        });
+      }
+    } else {
+      if (audioRef.current) audioRef.current.pause();
+      timeoutId = setTimeout(proceedToNext, currentBg === 0 ? 3000 : 5000);
+    }
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [currentBg, userInteracted]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden">
@@ -204,6 +245,8 @@ const Hero = () => {
           <div className="w-1.5 h-3 bg-accent rounded-full"></div>
         </div>
       </div>
+
+      <audio ref={audioRef} onEnded={() => setCurrentBg((prev) => (prev + 1) % backgrounds.length)} />
     </section>
   );
 };

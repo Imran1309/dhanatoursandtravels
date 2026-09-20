@@ -73,7 +73,7 @@ const upload = multer({
 let gridfsBucket;
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, { family: 4 })
     .then(() => {
         console.log('✅ MongoDB Connected Successfully');
         gridfsBucket = new mongoose.mongo.GridFSBucket(mongoose.connection.db, {
@@ -486,7 +486,8 @@ app.post('/api/users/register', async (req, res) => {
 // 2. User Login
 app.post('/api/users/login', async (req, res) => {
     try {
-        const { email, password } = req.body;
+        let { email, password } = req.body;
+        email = email.trim();
 
         const user = await User.findOne({ email });
         if (!user) {

@@ -84,7 +84,7 @@ const AuthDialog = ({ open, onOpenChange, onAuthenticated, onLogout }: AuthDialo
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md font-sans">
         <DialogHeader>
           <DialogTitle>
             {currentUser ? "Account" : isLogin ? "Login to Add Memories" : "Create Account"}

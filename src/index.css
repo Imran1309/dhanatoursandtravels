@@ -137,7 +137,6 @@ All colors MUST be HSL.
 
   .no-scrollbar {
     -ms-overflow-style: none;
-    scrollbar-width: none;
   }
 
   @keyframes rgb-edge {
@@ -204,4 +203,8 @@ All colors MUST be HSL.
   .animate-running-line {
     animation: running-line 4s ease-in-out infinite;
   }
+}
+
+input, textarea, select {
+  font-family: system-ui, sans-serif !important;
 }

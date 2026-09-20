@@ -105,8 +105,8 @@ const Footer = () => {
                 <div className="bg-white/10 p-3 rounded-xl group-hover:bg-[#FFD700] group-hover:text-[#7F1D1D] transition-all transform group-hover:scale-110">
                   <Mail className="h-6 w-6 flex-shrink-0" />
                 </div>
-                <a href="mailto:dhanatoursconsultors2020@gmail.com" className="text-white/90 text-base sm:text-lg font-semibold break-all group-hover:text-[#FFD700] transition-colors">
-                  dhanatoursconsultors2020@gmail.com
+                <a href="mailto:dhanatoursandtravels2020@gmail.com" className="text-white/90 text-base sm:text-lg font-semibold break-all group-hover:text-[#FFD700] transition-colors">
+                  dhanatoursandtravels2020@gmail.com
                 </a>
               </li>
             </ul>

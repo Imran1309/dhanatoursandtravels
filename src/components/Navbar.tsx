@@ -9,7 +9,7 @@ const Navbar = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isOwner, setIsOwner] = useState(false);
-  const OWNER_EMAIL = "dhanatrip2020@gmail.com";
+  const OWNER_EMAIL = "dhanatoursandtravels2020@gmail.com";
 
   // Check for owner status
   useEffect(() => {
